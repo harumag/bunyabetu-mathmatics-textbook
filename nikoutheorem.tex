@@ -1,0 +1,96 @@
+\documentclass[10pt,fleqn,a4paper]{jsarticle}
+\usepackage[dvipdfmx]{graphicx,color}
+\usepackage{ascmac,amsmath,amssymb,amstext}
+\usepackage{tikz,multicol,float,tikz-3dplot}
+\usetikzlibrary{positioning,intersections,calc,arrows.meta,math,angles}
+\usepackage{zogeny,ceo,comment}
+\newcommand{\ans}[1]{\mbox{\boldmath{$#1$}}}
+\renewcommand{\baselinestretch}{1.2} 
+\tdplotsetmaincoords{60}{110}%{xy平面からどれだけ上にいるか(90度から-90度)}{z軸中心にどれだけ左右に回転するか}
+\usepackage{MnSymbol}
+\title{二項定理}
+\author{大島　遙斗}
+\begin{document}
+\maketitle
+\newpage
+割と皆さんが苦手な二項定理です.ですが,二項定理が苦手な理由は,教科書や参考書に騙されているからである可能性が高いです.ですので,
+全ての二項定理の公式は\ans{あたりまえ}にしてしまいましょう.\\
+\begin{itembox}
+[l]{\enpitu 定理}
+次のような展開を二項展開とよび,数学的帰納法で証明することができる.
+\begin{center}
+    $\ans{(x+y)^n=\wa{k=0}{n}\comb{n}{k}x^ky^{n-k}=\wa{k=0}{n}x^{n-k}y^k}$
+\end{center}
+\end{itembox}\\
+\begin{itembox}
+    [l]{\enpitu\hspace{2mm}$\comb{n}{k}の性質$}
+    \doichi. $\comb{n}{k}=\comb{n}{n-k}　(0\leq k\leq n)\\
+    \doni.\comb{n}{k}=\comb{n-1}{k-1}+\comb{n-1}{k}　(1\leq k\leq n-1)\\
+    \dosan. k\cdot\comb{n}{k}=n\cdot\comb{n-1}{k-1}　(1\leq k\leq n)$
+\end{itembox}
+\newpage
+\noindent\ba{1}.次のそれぞれの計算を実行せよ.\\
+\kakkoichi$(x+y)^7を展開したときのx^3y^4の係数を求めよ.\\
+\kakkoni (x+y+z)^8を展開したときのx^2yz^5の係数を求めよ.$\\\\
+\ba{2}.次の和を求めよ.ただし,$nは自然数である.$\\
+\kakkoichi $A_n=\wa{k=0}{n}3^k\cdot\comb{n}{k}\\
+\kakkoni B_n=\wa{k=0}{n}\comb{n}{k}\\
+\kakkosan C_n=\wa{k=1}{n}\comb{2n}{2k-1}$\\\\
+
+\noindent\fbox{\kurosankakub 日々の演習\kurosankakua}\\
+\shikakuichib.次の多項式を展開したときの指定された文字の係数を求めよ.\\
+\kakkoichi $(2x-1)^6のx^4の係数.\\
+\kakkoni (x+2y+3z)^7のx^2y^3z^2の係数.$\\
+\shikakunib.次の等式を証明せよ.
+\begin{align*}
+    \wa{k=0}{n}\p{\comb{n}{k}}^2=\comb{2n}{n}
+\end{align*}
+\shikakusanb.次の和を求めよ.\\
+$\kakkoichi \wa{k=0}{n}\dfrac{\comb{n}{k}}{k+1}\\
+\kakkoni \wa{k=0}{n}\dfrac{\comb{2n}{2k}}{2k+1}$\\\\
+\shikakushib.$\hspace{1mm}3^{100}の下二桁を求めよ.\hspace{1cm}(お茶の水女子大)$\\\\
+\shikakugob.次の各問いに求めよ.\\
+$\kakkoichi nを正の整数とする.(1+a)^nを二項定理を用いて展開せよ.\\
+\kakkoni 21^{10}を400で割った余りを求めよ.\\
+\kakkosan 19^n+21^nが400で割り切れるような正の整数は存在するか.存在するならばその例を示し,存在しない場合はそれを証明せよ.\hspace{1cm}(中央大)$
+\newpage
+{\large \ans{解答}}\\
+\ba{1}.\\
+\kai\\
+\kakkoichib $xを3個,yを4個選べばよいので,求める係数は,\comb{7}{3}=\dfrac{7\cdot6\cdot5}{3\cdot2\cdot1}=\ans{35}\\
+\kakkonib xを2個,yを1個,zを5個選べば良いので,\comb{8}{2}x^2\cdot\comb{6}{1}y\cdot\comb{5}{5}z^5=\dfrac{8\cdot7}{2\cdot1}\times\dfrac{6}{1}\times1x^2yz^5=\ans{168}$\\
+\bekkai\kakkoni\\
+$xを2個,yを1個,zを5個並べるときの順列の総数に等しいので,\dfrac{8!}{2!5!}=\dfrac{8\cdot7\cdot6}{2\cdot1}=\ans{168}$\\\\
+\ba{2}.\\
+\kangaekata\\
+\kakkoichi \kakkoni どうにかして,二項定理の定義の形に帰着させることを考えましょう.\\
+\kakkosan よくわからない数列は,\ans{書き下す}が基本です.\\
+\kai\\
+\kakkoichib $A_n=\wa{k=0}{n}3^k\cdot\comb{n}{k}=\wa{k=0}{n}\comb{n}{k}\cdot3^k\cdot1^{n-k}=(3+1)^n=\ans{4^n}\\
+\kakkonib B_n=\wa{k=0}{n}\comb{n}{k}=\wa{k=1}{n}\comb{n}{k}1^{k}\cdot1^{n-k}=(1+1)^n=\ans{2^n}$\\
+\kakkosanb $C_n=\wa{k=1}{n}\comb{2n}{2k-1}=\comb{2n}{1}+\comb{2n}{3}+\comb{2n}{5}+\cdots+\comb{2n}{2n-1}\\
+これは,(1+1)^{2n}を展開したときの,奇数番目のみ抜き出したものである.\\
+このことより,$
+\begin{align*}
+    (1+1)^{2n}&=\comb{2n}{0}+\comb{2n}{1}+\comb{2n}{2}+\comb{2n}{3}+\cdots+\comb{2n}{2n}\cdots\cdots\cdots\maruichi\\
+    (-1+1)^{2n}&=\comb{2n}{0}-\comb{2n}{1}+\comb{2n}{2}-\comb{2n}{3}+\cdots+\comb{2n}{2n}\cdots\cdots\cdots\maruni
+\end{align*}
+$よって,\dfrac{\maruichi-\maruni}{2}より,$
+\begin{align*}
+    \dfrac{\maruichi-\maruni}{2}=\dfrac{2^{2n}-0}{2}=\comb{2n}{1}+\comb{2n}{3}+\comb{2n}{5}+\cdots+\comb{2n}{2n-1}
+\end{align*}
+なので,求めたい和と一致し,$C_n=\ans{\dfrac{2^{2n}}{2}}=\ans{2^{2n-1}}$\\\\
+\newpage
+\noindent{\large\ans{\fbox{\kurosankakub 日々の演習\kurosankakua}の解答}}\\
+\noindent\shikakuichib\\
+\noindent\kai\\
+\kakkoichib $2xを4個選べば良いので,求める係数は,\comb{6}{4}(2x)^4(-1)^2=15\cdot16=\ans{240}$\\
+\kakkonib $xを2個,2yを3個,3zを2個選べば良いので,\comb{7}{2}\times\comb{5}{3}2^3\times3^2=\ans{15120}$\\\\
+\shikakunib\\
+\kangaekata\\
+帰納法は明らかにめんどくさそうです.なので,一回直接証明することができないかやってみましょう.\\
+\kai\\
+$\wa{k=0}{n}\p{\comb{n}{k}}^2=\comb{2n}{n}\cdots\cdots\cdots\largestar　を示す.$
+
+
+\end{document}
