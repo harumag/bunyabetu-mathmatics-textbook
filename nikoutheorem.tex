@@ -7,7 +7,6 @@
 \newcommand{\ans}[1]{\mbox{\boldmath{$#1$}}}
 \renewcommand{\baselinestretch}{1.2} 
 \tdplotsetmaincoords{60}{110}%{xy平面からどれだけ上にいるか(90度から-90度)}{z軸中心にどれだけ左右に回転するか}
-\usepackage{MnSymbol}
 \title{二項定理}
 \author{大島　遙斗}
 \begin{document}
@@ -90,7 +89,60 @@ $よって,\dfrac{\maruichi-\maruni}{2}より,$
 \kangaekata\\
 帰納法は明らかにめんどくさそうです.なので,一回直接証明することができないかやってみましょう.\\
 \kai\\
-$\wa{k=0}{n}\p{\comb{n}{k}}^2=\comb{2n}{n}\cdots\cdots\cdots\largestar　を示す.$
+$\wa{k=0}{n}\p{\comb{n}{k}}^2=\comb{2n}{n}\cdots\cdots\cdots\asta　を示す.$
+\begin{align*}
+    (1+x)^{2n}=(1+x)^n\times(1+x)^n
+\end{align*}
+より,二項定理から
+\begin{align*}
+    \comb{2n}{0}+\comb{2n}{1}x+\comb{2n}{2}x^2+\cdots+\comb{2n}{n}x^n+\cdots+\comb{2n}{2n}x^{2n}&=\p{\comb{n}{0}+\comb{n}{1}x+\comb{n}{2}x^2+\cdots+\comb{n}{n}x^n}\\
+    &\times\p{\comb{n}{0}+\comb{n}{1}x+\comb{n}{2}x^2+\cdots+\comb{n}{n}x^n}\cdots\cdots\cdots\maruichi
+\end{align*}
+$\maruichi の両辺のx^nの係数を比較すると$
+\begin{align*}
+    \comb{2n}{n}&=\comb{n}{0}\times\comb{n}{n}+\comb{n}{1}\times\comb{n}{n-1}+\comb{n}{2}\times\comb{n}{n-2}+\cdots+\comb{n}{n}\times\comb{n}{0}\\
+    &=\wa{k=0}{n}=\comb{n}{k}\times\comb{n}{n-k}\\
+    &=\wa{k=0}{n}\comb{n}{k}\times\comb{n}{k}　\p{\because \comb{n}{n-k}=\comb{n}{k}}\\
+    &=\wa{k=0}{n}\p{\comb{n}{k}}^2
+\end{align*}
+よって,$ \asta が示された.\ans{(証明終わり)}$\\\\
+\newpage
+\noindent\shikakusanb\\
+\kangaekata\\
+\kakkoichi\kakkoni 分母に式が来るような計算は...と考えると\ans{積分すれば良い}と思い付きます.\\
+\kai\\
+\kakkoichib 二項定理より,$(1+x)^n=\wa{k=0}{n}\comb{n}{k}x^kなので,これの両辺を0から1で積分すると,$
+\begin{align*}
+    &\dint{0}{1}(1+x)^ndx=\dint{0}{1}\wa{k=0}{n}\comb{n}{k}x^kdx\\
+    &\doti \tint{\dfrac{(1+x)^{n+1}}{n+1}}{0}{1}=\tint{\wa{k=0}{n}\dfrac{\comb{n}{k}}{k+1}x^{k+1}}{0}{1}\\
+    &\doti \dfrac{2^{n+1}-1}{n+1}=\wa{k=0}{n}\dfrac{\comb{n}{k}}{k+1}
+\end{align*}
+よって,これは求める和と一致し,求める和は$\ans{\dfrac{2^{n+1}-1}{n+1}}$\\
+\kakkonib 二項定理より,$(1+x)^{2n}=\wa{k=0}{2n}\comb{2n}{k}x^k=\underbrace{\wa{k=0}{n}\comb{2n}{2k}x^{2k}}_{偶数番目}+\underbrace{\wa{k=1}{n}\comb{2n}{2k-1}x^{2k-1}}_{奇数番目}
+(\temarkua 数\suIII の無限級数でもよくやるテクニックです.)\\$
+これの両辺を$-1から1まで積分すると,$
+\begin{align*}
+    &\dint{-1}{1}(1+x)^{2n}dx=2\dint{0}{1}\wa{k=0}{n}\comb{2n}{2k}x^{2k}dx\\
+    &\doti \tint{\dfrac{(1+x)^{2n+1}}{2n+1}}{-1}{1}=2\tint{\wa{k=0}{n}\dfrac{\comb{2n}{2k}}{2k+1}}{0}{1}\\
+    &\doti \dfrac{2^{2n+1}}{2n+1}=2\wa{k=0}{n}\dfrac{\comb{2n}{2k}}{2k+1}\\
+    &\doti \wa{k=0}{n}\dfrac{\comb{2n}{2k}}{2k+1}=\dfrac{4^n}{2n+1}
+\end{align*}
+よって,求める和は,$\ans{\dfrac{4^n}{2n+1}}$\\\\
+\newpage
+\noindent\shikakugob\\
+\kangaekata\\
+$下二桁なので\ans{100で割った余り}ですね!二項定理で展開して100で割り切れないところだけ残しましょう.$\\
+\kai\\
+二項定理より,
+\begin{align*}
+    3^{100}&=(1+2)^{100}\\
+    &=\wa{k=0}{100}\comb{100}{k}2^k\cdots\cdots\cdots\maruichi
+\end{align*}
+$\maruichi の右辺を100で割ると,\comb{100}{0}のみ残るので,求める余りは,\ans{1}$\\\\
+\shikakugob\\
+\kangaekata\\
+\kakkoichi 
+
 
 
 \end{document}
