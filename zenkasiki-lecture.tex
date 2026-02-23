@@ -1,0 +1,157 @@
+\documentclass[10pt,fleqn,a4paper]{jsarticle}
+\usepackage[dvipdfmx]{graphicx,color}
+\usepackage{ascmac,amsmath,amssymb,amstext}
+\usepackage{tikz,multicol,float,tikz-3dplot}
+\usetikzlibrary{positioning,intersections,calc,arrows.meta,math,angles}
+\usepackage{zogeny,ceo,comment}
+\newcommand{\ans}[1]{\mbox{\boldmath{$#1$}}}
+\renewcommand{\baselinestretch}{1.2} 
+\tdplotsetmaincoords{60}{110}%{xy平面からどれだけ上にいるか(90度から-90度)}{z軸中心にどれだけ左右に回転するか}
+\title{漸化式の基本}
+\author{大島　遙斗}
+\begin{document}
+\maketitle
+\newpage
+計算用紙
+\newpage
+今回は,基本的な漸化式を扱います.苦手な人が多い理由はそれぞれの漸化式の解き方を覚えているからにすぎません.漸化式は実は,\ans{3つの基本漸化式に帰着させる}
+ことでしか解くことができないのです.\\その3つとは,\ans{\doichi.等差型,\doni.等比型.\dosan.階差(差分)型}です.\\\\
+$以下,n\in\mathbb{N}とします.$
+\begin{itembox}
+[l]{\enpitu \doichi.等差型漸化式}
+$dを定数として,次の形の漸化式を等差型漸化式と呼ぶ.$
+\begin{center}
+    $a_{n+1}=a_n+d$
+\end{center}
+さらにその一般項$\B{a_n}は,$
+\begin{center}
+    $a_n=a_1+(n-1)d$
+\end{center}
+で表される.
+\end{itembox}
+\begin{itembox}
+    [l]{\enpitu. 等比型漸化式}
+    $rを定数として,次の形の漸化式を等比型漸化式と呼ぶ.$
+    \begin{center}
+        $a_{n+1}=ra_n$
+    \end{center}
+また,この数列の構造は以下のようになっている.
+\begin{center}
+    $a_1\xrightarrow{\times r}a_2\xrightarrow{\times r}a_3\xrightarrow{\times r}\cdots\xrightarrow{\times r}a_n$
+\end{center}
+したがって,$\ans{a_1にrを(n-1)回かければa_nになる}ので,その一般項\B{a_n}は,$
+\begin{center}
+    $a_n=a_1\cdot r^{n-1}$
+\end{center}
+で表される.
+\end{itembox}
+\begin{itembox}
+    [l]{\enpitu \dosan.階差型(差分型)漸化式}
+    $f(n)をある規則を持った数列として,次の形の漸化式を階差型(差分型)漸化式と呼ぶ.$
+    \begin{center}
+        $a_{n+1}=a_n+f(n)$
+    \end{center}
+    また,この数列の構造は以下のようになっている.
+    \begin{center}
+        $a_1\xrightarrow{+f(1)}a_2\xrightarrow{+f(2)}a_3\xrightarrow{+f(3)}\cdots\xrightarrow{+f(n-1)}a_n$
+    \end{center}
+したがって,$a_1+f(1)+f(2)+f(3)+\cdots+f(n-1)=a_1+\wa{k=1}{n-1}f(k)=a_nになるので,その一般項\B{a_n}は$
+\begin{center}
+    $n\geq2のとき,a_n=a_1+\wa{k=1}{n-1}f(k)$
+\end{center}
+と表される.また,$n=1のときに上式は成立しないので,n=1のときのa_nの成立も確認しなければならない.$
+\end{itembox}\\
+世の中の漸化式(力学系などの数学3の範囲・カオス的な漸化式を除く)は全てこの三つの漸化式に帰着させて解きます.\\
+なので,皆さん覚えがちな次の形をした漸化式を2通りの方法で解いてみましょう.(次ページ)\\\\
+\newpage
+$\noindent\bullet \doshi \ans{応用型漸化式}\\
+pを定数として次の形の漸化式を応用型漸化式とよぶ.$
+\begin{center}
+    $a_{n+1}=pa_n+f(n)\cdots\cdots\cdots\asta$
+\end{center}
+そして,解き方は,\kuromaruichi 「階差型への帰着」と\kuromaruni 「等比型への帰着」の二つがある.まず,\kuromaruichi をみてみよう.\\
+\kuromaruichi\ans{階差型への帰着}\\
+\kangaekata\\
+$\asta のpがなかったら,階差型になる!じゃあ,\asta の両辺をp^nかp^{n+1}で割ってみよう!$\\
+\kai\\
+$\asta の両辺をp^{n+1}で割ると,$
+\begin{align*}
+    \dfrac{a_{n+1}}{p^{n+1}}=\dfrac{a_n}{p^n}+\dfrac{f(n)}{p^{n+1}}
+\end{align*}
+$b_n=\dfrac{a_n}{p^n}とおけば,b_{n+1}=b_n+\dfrac{p^{n+1}}{f(n)}となってこれは,階差型の漸化式である.$\\\\
+これで,目標が達成できました.つぎに\kuromaruni へ行きたいところですが,\ans{特性方程式}を使うので,皆さん訳わからずにつかっている
+特性方程式について,注意,モチベージョンを話しておきます.\\
+\fbox{\chud 特性方程式について.}\\
+特性方程式とは,その方程式(漸化式とか微分方程式とか)を満たすような数列ないし関数をテキトーに予想して,それを計算することで一般の
+式に対する特殊解を探すような方程式である.すなわち,\ans{実験しないと特殊解は見つからない.}ということである.だが,その特殊解
+は先人の努力により分かっている.次のようなことが知られている.\\
+$\ans{1.a_{n+1}=pa_n+f(n)型}\to 定数数列が特殊解.\\
+\ans{2.a_{n+2}=pa_{n+1}+qa_n型}\to 等比数列が特殊解.$\\
+そのため,$a_{n+1}=pa_n+f(n)の漸化式は,\ans{\alpha=p\alpha+f(n)}という特性方程式を解くのである.\\
+同様に,隣接三項間型漸化式:a_{n+2}=pa_{n+1}+qa_nは,\ans{\alpha^2=p\alpha+q}という特性方程式を解くのである.\ans{(注意終わり)}$\\\\
+\kuromaruni\ans{等比型への帰着}\\
+\kangaekata\\
+$\asta のf(n)がなかったら,等比型になるな.じゃあ,\asta を満たす数列を一つ見つけて,引き算すればf(n)消えるやん.とりあえず,
+定数数列:b_n=\alpha みたいな数列が\asta をみたすか実験してみよう!　\alpha=p\alpha+f(n)になって,\asta を満たすぞ!$\\\\
+\kai\\
+引き算すると,$a_{n+1}-d=p\p{a_n-d}となって,これは等比型漸化式で目標は達成.$\\
+では,次の問題を5分を目安に2つの解法で解いてみてください.\\
+\fbox{$a_1=6,a_{n+1}=4a_n-3\cdots\bigstar(n=1,2,3,\cdots)の一般項を求めよ.$}\\
+\kuromaruichi \underline{階差型への帰着.}\\
+\kai\\
+$\bigstar の両辺を4^{n}で割ると,$
+\begin{align*}
+    \dfrac{a_{n+1}}{4^n}=\dfrac{a_n}{4^{n-1}}-\dfrac{3}{4^n}
+\end{align*}
+これより,$n\geq2のとき,$
+\begin{align*}
+    \dfrac{a_n}{4^{n-1}}&=a_1-3\wa{k=1}{n-1}\dfrac{1}{4^n}\\
+    &=6-3\cdot\dfrac{\frac{1}{4}-\frac{1}{4^n}}{1-\frac{1}{4}}\\
+    &=5+\dfrac{1}{4^{n-1}}
+\end{align*}
+$\yueni a_n=5\cdot4^{n-1}+1で,これは,n=1のときも成立するから,求める一般項は,\ans{a_n=5\cdot4^{n-1}+1(n\geq1)}$\\
+\kuromaruni\underline{等比型への帰着.}\\
+\kai\\
+$a_n=\alpha が\bigstar を満たすとすると,$
+\begin{align*}
+    \alpha=4\alpha-3\doti \alpha=1
+\end{align*}
+これより,$a_n=1は\bigstar を満たす特殊解である.すなわち,1=4\cdot1-3を満たすので,これを\bigstar から辺々引くと,$
+\begin{align*}
+    a_{n+1}-1=4\p{a_n-1}(n\geq1)
+\end{align*}
+となり,これは,$初項(a_1-1)=5の等比数列である.$\\
+よって求める一般項は,$1a_n-1=5\cdot4^{n-1}\doti\ans{a_n=5\cdot4^{n-1}+1(n\geq1)}$\\\\
+必ず,どっちでも解けるようにしましょう.\\
+次に,隣接三項間型漸化式です.(次ページ)
+\newpage
+$\noindent\bullet\dogo\ans{隣接三項間型漸化式}$\\
+$p,qを定数として,次の形の漸化式を隣接三項間型漸化式と呼ぶ.$
+\begin{center}
+    $a_{n+2}=pa_{n+1}+qa_n\cdots\asta$
+\end{center}
+そして,解き方は,\kuromaruichi 「等比型への帰着(教科書を見よ)」と\kuromaruni 「線形結合を利用し一般解を表す方法」の二つがある.
+\kuromaruichi は教科書ないし参考書をみよ.\kuromaruni の解き方を述べる前に,\ans{線形結合とは？}を解説する.\\\\
+\fbox{\chud 線形結合とは？}\\
+今考えている方程式のrank(次数)が$n(n次)のとき,\alpha_1,\alpha_2,\cdots,\alpha_mのm個の特殊解が得られており,定数C_1,C_2,C_3,\cdots C_mとして,一般解(一般項)は次のように表すことができる.$
+\begin{center}
+    $a_n=\wa{k=1}{m}\alpha_kC_k=\alpha_1C_1+\alpha_2C_2+\cdots+\alpha_mC_m$
+\end{center}
+そして,$m個の定数は初期条件(a_1,a_2,\cdots,a_mの値)から連立方程式を解くことにより求めることができ,その結果が一般解である.\ans{(注意終わり)}$\\\\
+\kuromaruni \underline{線形結合を利用し一般解を表す方法.}\\
+\kai\\
+$a_n=r^{n-1}が\asta を満たすとすると,\asta に代入して$
+\begin{align*}
+    r^{n+1}=pr^n+qr^{n-1}&\doti r^{n-1}\p{r^2-pr-q}=0\\
+    &\doti r^2-pr-q=0\\
+    &\doti \p{r-\alpha_1}\p{r-\alpha_2}=0\p{\temarkua 一時的にr=\alpha_1,\alpha_2が解と仮定した.}\\
+    &\doti a_n=\alpha_1^{n-1},\alpha_2^{n-1}は\asta を満たす特殊解.
+\end{align*}
+これより,定数を$C_1,C_2として\asta の一般項は,$
+\begin{center}
+    $a_n=C_1\cdot\alpha_1^{n-1}+C_2\cdot\alpha_2^{n-1}$
+\end{center}
+と表すことができる.あとは,初期条件より,定数を定めれば良い.簡単でしょ??\\
+では,この方法で次の問題を5分を目安に解いてみてください.\\
+\fbox{$a_1=0,a_2=1,a_{n+2}=a_{n+1}+6a_n\cdots\bigstar(n=1,2,3,\cdots)の一般項を求めよ.$}
+\end{document}
