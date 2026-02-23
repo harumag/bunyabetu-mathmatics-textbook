@@ -18,7 +18,7 @@
 [l]{\enpitu 定理}
 次のような展開を二項展開とよび,数学的帰納法で証明することができる.
 \begin{center}
-    $\ans{(x+y)^n=\wa{k=0}{n}\comb{n}{k}x^ky^{n-k}=\wa{k=0}{n}x^{n-k}y^k}$
+    $\ans{(x+y)^n=\wa{k=0}{n}\comb{n}{k}x^ky^{n-k}=\wa{k=0}{n}\comb{n}{k}x^{n-k}y^k}$
 \end{center}
 \end{itembox}\\
 \begin{itembox}
@@ -51,7 +51,7 @@ $\kakkoichi \wa{k=0}{n}\dfrac{\comb{n}{k}}{k+1}\\
 \shikakugob.次の各問いに求めよ.\\
 $\kakkoichi nを正の整数とする.(1+a)^nを二項定理を用いて展開せよ.\\
 \kakkoni 21^{10}を400で割った余りを求めよ.\\
-\kakkosan 19^n+21^nが400で割り切れるような正の整数は存在するか.存在するならばその例を示し,存在しない場合はそれを証明せよ.\hspace{1cm}(中央大)$
+\kakkosan 19^n+21^nが400で割り切れるような正の整数nは存在するか.存在するならばその例を示し,存在しない場合はそれを証明せよ.\hspace{1cm}(中央大)$
 \newpage
 {\large \ans{解答}}\\
 \ba{1}.\\
@@ -141,8 +141,39 @@ $下二桁なので\ans{100で割った余り}ですね!二項定理で展開し
 $\maruichi の右辺を100で割ると,\comb{100}{0}のみ残るので,求める余りは,\ans{1}$\\\\
 \shikakugob\\
 \kangaekata\\
-\kakkoichi 
-
-
+\kakkosan 二項定理で数を小さくしましょう.\\
+\kai\\
+\kakkoichib $(1+a)^n=\ans{\wa{k=0}{n}\comb{n}{k}a^k}$ \\
+\kakkonib 
+\begin{align*}
+    21^{10}&=(20+1)^{10}=\wa{k=0}{10}\comb{10}{k}20^k\\
+    &=\comb{10}{0}+\comb{10}{1}20+\wa{k=2}{10}\comb{10}{k}20^k\cdots\cdots\cdots\maruichi
+\end{align*}
+ここで,$\maruichi の左辺において,\wa{k=2}{10}\comb{10}{k}20^k は,必ず400を因数に持つので400で割り切れる.$\\
+$\Y 21^{10}を400で割った余りは,\comb{10}{0}+\comb{10}{1}20=\ans{201}$\\\\
+\kakkosanb $f(n)=19^n+21^nとおく.$
+\begin{align*}
+    f(n)が400で割り切れるような正の整数nが存在する.\doti f(n)\godo0\kmod{400}\cdots\cdots\cdots\asta
+\end{align*}
+これより,$19^nと21^nをそれぞれ二項定理で展開すると$
+\begin{align*}
+    19^n&=(20-1)^n\\
+    &=\wa{k=0}{n}\comb{n}{k}\p{20}^k\p{-1}^{n-k}\\
+    &=\comb{n}{0}(-1)^n+\comb{n}{1}20\p{-1}^{n-1}+\wa{k=2}{n}\comb{n}{k}\p{20}^k\p{-1}^{n-k}\\
+    &\godo \comb{n}{0}(-1)^n+\comb{n}{1}20\p{-1}^{n-1}\kmod{400}\\
+    &=\p{-1}^n\p{1-20n}\kmod{400}\cdots\cdots\cdots\maruni
+\end{align*}
+\begin{align*}
+    21^n&=\comb{n}{0}+\comb{n}{1}20+\wa{k=2}{n}\comb{n}{k}20^k\\
+    &\godo1+20n\kmod{400}\cdots\cdots\cdots\marusan
+\end{align*}
+よって,$\maruni,\marusan から,f(n)\godo \p{-1}^n\p{1-20n}+1+20n$\\
+\tokeiichi\underline{$nが偶数のとき,$}\\
+　$(-1)^n=1なので,f(n)=\p{1-20n}+\p{1+20n}=2\\
+これより,f(n)\negodo 0\kmod{400}.$\\
+\tokeini\underline{$nが奇数のとき,$}\\
+　$(-1)^n=-1なので,f(n)=(-1)(1-20n)+1+20n=40n$\\
+今,$nが奇数なので,n\negodo 0\kmod{10}であるからf(n)\negodo0\kmod{400}である.$\\\\
+$\Y 以上\tokeiichi,\tokeini より,f(n)を400で割り切るようなnは存在しない.\ans{(証明終わり)}$
 
 \end{document}
