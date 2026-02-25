@@ -78,7 +78,7 @@ $\asta の両辺をp^{n+1}で割ると,$
 \begin{align*}
     \dfrac{a_{n+1}}{p^{n+1}}=\dfrac{a_n}{p^n}+\dfrac{f(n)}{p^{n+1}}
 \end{align*}
-$b_n=\dfrac{a_n}{p^n}とおけば,b_{n+1}=b_n+\dfrac{p^{n+1}}{f(n)}となってこれは,階差型の漸化式である.$\\\\
+$b_n=\dfrac{a_n}{p^n}とおけば,b_{n+1}=b_n+\dfrac{f(n)}{p^{n+1}}となってこれは,階差型の漸化式である.$\\\\
 これで,目標が達成できました.つぎに\kuromaruni へ行きたいところですが,\ans{特性方程式}を使うので,皆さん訳わからずにつかっている
 特性方程式について,注意,モチベージョンを話しておきます.\\
 \fbox{\chud 特性方程式について.}\\
@@ -154,4 +154,41 @@ $a_n=r^{n-1}が\asta を満たすとすると,\asta に代入して$
 と表すことができる.あとは,初期条件より,定数を定めれば良い.簡単でしょ??\\
 では,この方法で次の問題を5分を目安に解いてみてください.\\
 \fbox{$a_1=0,a_2=1,a_{n+2}=a_{n+1}+6a_n\cdots\bigstar(n=1,2,3,\cdots)の一般項を求めよ.$}
+\newpage
+\noindent\kai\\
+$a_n=x^{n-1}が\bigstar を満たすとすると,代入するこにより,$
+\begin{align*}
+    x^{n+1}=x^n+6x^{n-1}&\doti x^{n-1}\p{x^2-x-6}=0\\
+    &\doti (x-3)(x+2)=0\\
+    &\doti x=3,-2
+\end{align*}
+よって,$a_n=3^{n-1},\p{-2}^{n-1}は\bigstar を満たす特殊解である.これより,定数をC_1,C_2とおくと,一般項\B{a_n}は$
+\begin{align*}
+    a_n=C_1\cdot3^{n-1}+C_2\cdot\p{-2}^{n-1}\cdots\cdots\cdots\maruichi 
+\end{align*}
+と表せる.初期条件から,
+\begin{align*}
+    \begin{cases}
+        0=C_1+C_2\\
+        1=3C_1-2C_2
+    \end{cases}&\doti\begin{cases}
+    C_1=-C_2\\
+    1=3C_1+2C_2
+    \end{cases}\doti\begin{cases}
+        C_1=\frac{1}{5}\\
+        C_2=-\frac{1}{5}
+    \end{cases}
+\end{align*}
+$\Y 求める一般項は,\ans{a_n=\dfrac{1}{5}\p{3^{n-1}-\p{-2}^{n-1}}\p{n\geq1}}$\\\\
+では,次に,\ans{特殊解が1つしか得られなかった場合の一般項の求め方}について説明します.\\
+次の性質は,認めてください.
+\begin{itembox}
+    [l]{\chud 特殊解が重解の場合と線形結合}
+    今,$隣接三項間型漸化式の特殊解が,a_n=r^{n-1}と一つしか得られなかったとする.このとき,一般項\B{a_n}は,$
+    \begin{center}
+        $a_n=C_1\cdot r^{n-1}+C_2\cdot n\cdot r^{n-1}$
+    \end{center}
+    と表すことができる.\\
+    つまり,もう一つの特殊解は,$\ans{得られた特殊解のn倍である.}ということです.$
+\end{itembox}
 \end{document}
