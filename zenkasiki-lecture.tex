@@ -135,7 +135,7 @@ $p,qを定数として,次の形の漸化式を隣接三項間型漸化式と呼
 \fbox{\chud 線形結合とは？}\\
 今考えている方程式のrank(次数)が$n(n次)のとき,\alpha_1,\alpha_2,\cdots,\alpha_mのm個の特殊解が得られており,定数C_1,C_2,C_3,\cdots C_mとして,一般解(一般項)は次のように表すことができる.$
 \begin{center}
-    $a_n=\wa{k=1}{m}\alpha_kC_k=\alpha_1C_1+\alpha_2C_2+\cdots+\alpha_mC_m$
+    $a_n=\wa{k=1}{m}\alpha_k\cdot C_k=\alpha_1\cdot C_1+\alpha_2\cdot C_2+\cdots+\alpha_m\cdot C_m$
 \end{center}
 そして,$m個の定数は初期条件(a_1,a_2,\cdots,a_mの値)から連立方程式を解くことにより求めることができ,その結果が一般解である.\ans{(注意終わり)}$\\\\
 \kuromaruni \underline{線形結合を利用し一般解を表す方法.}\\
@@ -191,4 +191,45 @@ $\Y 求める一般項は,\ans{a_n=\dfrac{1}{5}\p{3^{n-1}-\p{-2}^{n-1}}\p{n\geq1
     と表すことができる.\\
     つまり,もう一つの特殊解は,$\ans{得られた特殊解のn倍である.}ということです.$
 \end{itembox}
+では,次の問題も同様に5分を目安に解いてみてください.\\
+\fbox{$a_1=2,a_2=3,a_{n+2}-4a_{n+1}+4a_n=0\cdots\bigstar(n=1,2,3,\cdots)の一般項を求めよ.$}
+\newpage
+\noindent\kai\\
+$a_n=x^{n-1}が\bigstar を満たすとすると,代入することにより,$
+\begin{align*}
+    x^2-4x+4=0&\doti (x-2)^2=0\\
+    &\doti x=2
+\end{align*}
+よって,$a_n=2^{n-1},n\cdot2^{n-1}は\bigstar を満たす特殊解である.これより,定数をC_1,C_2とおくと,一般項\B{a_n}は,$
+\begin{align*}
+    a_n=C_1\cdot2^{n-1}+C_2\cdot n\cdot2^{n-1}\cdots\cdots\cdots\maruichi 
+\end{align*}
+と表せる.初期条件から,
+\begin{align*}
+    \begin{cases}
+    2=C_1+C_2\\
+    3=2C_1+4C_2
+    \end{cases}&\doti\begin{cases}
+        2C_1+2C_2=4\\
+        2C_1+4C_2=3
+    \end{cases}
+    \doti\begin{cases}
+        C_1=\frac{5}{2}\\
+        C_2=-\frac{1}{2}
+    \end{cases}
+\end{align*}
+$\Y 求める一般項は,\ans{a_n=\dfrac{5}{2}\cdot2^{n-1}-\dfrac{1}{2}\cdot n\cdot2^{n-1}(n\geq1)}$\\\\
+重解の場合も簡単ですね!とかく,隣接三項間型漸化式にびびる必要はもうありません.\\
+では,続いて連立漸化式についてみてゆくことにいたしましょう.
+\newpage
+\noindent$\bullet\doroku\ans{連立漸化式}$\\
+$p,q,r,sを定数として,値が一致する場合も含めて次の形の漸化式を連立漸化式と呼ぶ.$
+\begin{center}
+    $\begin{cases}
+        a_{n+1}=pa_n+qb_n\\
+        b_{n+1}=ra_n+sb_n
+    \end{cases}(n\geq1)$
+\end{center}
+解き方は様々あるが,基本的に\kuromaruichi 「等比型への帰着」,\kuromaruni 「隣接三項間型への帰着」や\kuromarusan 「辺々足して等比型(係数が対称の場合)」がある.
+\kuromaruni,\kuromarusan は簡単なので,省略する.\kuromaruichi について詳しく解説する.
 \end{document}
