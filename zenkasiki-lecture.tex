@@ -226,10 +226,93 @@ $\Y 求める一般項は,\ans{a_n=\dfrac{5}{2}\cdot2^{n-1}-\dfrac{1}{2}\cdot n\
 $p,q,r,sを定数として,値が一致する場合も含めて次の形の漸化式を連立漸化式と呼ぶ.$
 \begin{center}
     $\begin{cases}
-        a_{n+1}=pa_n+qb_n\\
-        b_{n+1}=ra_n+sb_n
+        a_{n+1}=pa_n+qb_n\cdots\cdots\cdots\maruichi\\
+        b_{n+1}=ra_n+sb_n\cdots\cdots\cdots\maruni
     \end{cases}(n\geq1)$
 \end{center}
 解き方は様々あるが,基本的に\kuromaruichi 「等比型への帰着」,\kuromaruni 「隣接三項間型への帰着」や\kuromarusan 「辺々足して等比型(係数が対称の場合)」がある.
-\kuromaruni,\kuromarusan は簡単なので,省略する.\kuromaruichi について詳しく解説する.
+\kuromaruni,\kuromarusan は簡単なので,省略する.\kuromaruichi について解説する.\\\\
+\kuromaruichi\underline{等比型に帰着させる方法}\\
+\kangaekata\\
+$\maruichi,\maruni が等比型になるための条件は,\ans{\maruichi\times\alpha+\maruni\times\beta の係数比が等しくなること.}です.$\\
+\kai\\
+$\maruichi\times\alpha+\maruni\times\beta より,等比型に帰着するための条件は,$
+\begin{align*}
+    \alpha a_{n+1}+\beta b_{n+1}=\p{p\alpha+r\beta}a_n+\p{q\alpha+s\beta}b_n
+\end{align*}
+の係数比がそれぞれ等しくなることである.\\
+したがって,
+\begin{align*}
+    \alpha:\beta=p\alpha+r\beta:q\alpha+s\beta&\doti p\alpha\beta+r\beta^2=q\alpha^2+s\alpha\beta\\
+    &\doti q\alpha^2+(s-p)\alpha\beta-r\beta^2=0　(\temarkua 解けますね!)\\
+    &\doti \cdots
+\end{align*}
+あとはこれを計算して係数比を出せば,等比型に帰着させることができるというワケです.\\
+では,次の2題を合わせて15分を目安に取り組んでみてください.\\
+\reibanichi$a_1=1,b_1=-1,\begin{cases}
+    a_{n+1}=5a_n-4b_n\cdots\cdots\cdots\maruichi\\
+    b_{n+1}=a_n+b_n\cdots\cdots\cdots\maruni
+\end{cases}(n\geq1)$\\\\
+\reibanni$a_1=b_1=1,　　\begin{cases}
+    a_{n+1}=a_n+4b_n\cdots\cdots\cdots\maruichi\\
+    b_{n+1}=a_n+b_n\cdots\cdots\cdots\maruni
+\end{cases}(n\geq1)$
+\newpage
+\noindent\reibanichi\\
+\kai
+\begin{align*}
+&\maruichi\times\alpha+\maruni\times\beta が等比型になる.\\
+&\doti \alpha a_{n+1}+\beta b_{n+1}=(5\alpha+\beta)a_n+(-4\alpha+\beta)b_n の係数比がそれぞれ等しい.\\
+&\doti \alpha:\beta=5\alpha+\beta:-4\alpha+\beta\\
+&\doti 4\alpha^2+4\alpha\beta+\beta^2=0\\
+&\doti \p{2\alpha+\beta}^2=0\\
+&\doti \alpha:\beta=1:-2
+\end{align*}
+これより,
+\begin{align*}
+    a_{n+1}-2b_{n+1}=3\p{a_n-2b_n}&\doti a_n-2b_n=3^{n-1}\p{a_1-2b_1}=3^n\\
+    &\doti a_n-2b_n=3^n\cdots\cdots\cdots\marusan
+\end{align*}
+$\marusan を\maruni に代入すると,$
+\begin{align*}
+    b_{n+1}=3b_n+3^n&\doti \dfrac{b_{n+1}}{3^n}=\dfrac{b_n}{3^{n-1}}+1\\
+    &\doti \dfrac{b_n}{3^{n-1}}=\dfrac{b_1}{3^0}+\wa{k=1}{n-1}1=n-2　(n\geq2)\\
+    &\doti b_n=3^{n-1}(n-2)
+\end{align*}
+これは,$n=1のときも成立する.$\\
+$また,a_n=3^n+2b_nより,$
+\begin{align*}
+    a_n=3^{n-1}(2n-1)
+\end{align*}
+$\Y 以上より,求める一般項は,\ans{\begin{cases}
+    a_n=3^{n-1}(2n-1)\\
+    b_n=3^{n-1}(n-2)
+\end{cases}(n\geq1)}$
+\newpage
+\noindent\reibanni\\
+\kai
+\begin{align*}
+    &\maruichi\times\alpha+\maruni\times\beta が等比型になる.\\
+    &\doti  \alpha a_{n+1}+\beta b_{n+1}=(\alpha+\beta)a_n+(4\alpha+\beta)b_nの係数比がそれぞれ等しい.\\
+    &\doti \alpha:\beta=\alpha+\beta:4\alpha+\beta\\
+    &\doti 4\alpha^2-\beta^2=0\\
+    &\doti(2\alpha-\beta)(2\alpha+\beta)=0\\
+    &\doti \alpha:\beta=1:2=1:-2
+\end{align*}
+$\bullet\hspace{2mm}\alpha:\beta=1:2より,\\
+　a_{n+1}+2b_{n+1}=3(a_n+2b_n)\doti a_n+2b_n=(a_1+2b_1)\cdot3^{n-1}=3^n\cdots\cdots\cdots\marusan $\\
+$\bullet\hspace{2mm}\alpha:\beta=1:-2より,\\$
+　$a_{n+1}-2b_{n+1}=-(a_n-2b_n)\doti a_n-2b_n=(-1)^{n-1}(a_1-2b_1)=(-1)^n\cdots\cdots\cdots\marushi$\\\\
+$\dfrac{\marusan+\marushi}{2}より,$
+\begin{align*}
+    a_n=\dfrac{3^n+(-1)^n}{2}
+\end{align*}
+$\dfrac{\marusan-\marushi}{4}より,$
+\begin{align*}
+    b_n=\dfrac{3^n-(-1)^n}{4}
+\end{align*}
+$\Y 求める一般項は,\ans{\begin{cases}
+    a_n=\dfrac{3^n+(-1)^n}{2}\\
+    b_n=\dfrac{3^n-(-1)^n}{4}
+\end{cases}(n\geq1)}$
 \end{document}
