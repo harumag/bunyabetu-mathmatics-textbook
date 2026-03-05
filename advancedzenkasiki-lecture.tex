@@ -18,6 +18,92 @@
 $\bullet\doichi\ans{和で表された漸化式.}$\\
 次のような形をした漸化式です.
 \begin{center}
-    $S_n\p{=\wa{k=p}{q}}=f(n)$
+    $S_n\p{=\wa{k=p}{q}a_k}=ma_n+f(n)$
 \end{center}
+\kangaekata\\
+数列の構造を確かめれば簡単です.次のような構造になっています.
+\begin{center}
+    $S_n=a_1+a_2+a_3+\cdots+a_n　(n\geq1)$
+\end{center}
+ここで,上の構造から$a_nのみ残したかったら,\ans{a_1\sim a_{n-1}を消せばよい!}ということがわかります.したがって,S_{n-1}を考えましょう.$
+\begin{align*}
+    S_n&=a_1+a_2+\cdots+a_{n-1}+a_n　(n\geq1)\cdots\cdots\cdots\maruichi\\
+    S_{n-1}&=a_1+a_2+\cdots+a_{n-1}\hspace{13mm}(n\geq2)\cdots\cdots\cdots\maruni
+\end{align*}
+$\maruichi-\maruni を考えると,a_nが残るので,n\geq2 の範囲で,a_n のみの漸化式が得られる.$\\
+では,実際次の2問を10分を目安に解きましょう.\\\\
+\ba{1}.次の漸化式で定まる数列$\B{a_n}の一般項を求めよ.$\\
+$\kakkoichi S_n=-2a_n-2n+5　(n\geq1)$\\
+$\kakkoni \wa{k=1}{n}a_k=2a_n+n　(n\geq1)$
+\newpage
+\noindent\ba{1}.\\
+\noindent\kai\\
+$\kakkoichib　 S_{n-1}=-2a_{n-1}-2n+7より,S_{n}-S_{n-1}を考えると,S_{n}-S_{n-1}=a_nから$
+\begin{align*}
+    a_n=-2a_n+2a_{n-1}-2&\doti 3a_n=2a_{n-1}-2\cdots\cdots\cdots\cdots\cdots\cdots\cdots\cdot\maruichi\\
+    &\doti a_n=\dfrac{2}{3}a_n-\dfrac{2}{3}　(n\geq2)\cdots\cdots\cdots\maruni 
+\end{align*}
+このことより,
+\begin{align*}
+    \maruni&\doti a_n+2=\dfrac{2}{3}\p{a_{n-1}+2}　(n\geq2)\\
+    &\doti a_{n+1}+2=\dfrac{2}{3}\p{a_{n}+2}　(n\geq1)\chu インデントをズラしても一般性を失いません.\\
+    &\doti a_n+2=\p{\dfrac{2}{3}}^{n-1}\cdot\p{a_1+2}=\p{\dfrac{2}{3}}^{n-1}\cdot3\\
+    &\doti \ans{a_n=3\cdot\p{\dfrac{2}{3}}^{n-1}-2　(n\geq1)}
+\end{align*}\\
+\kakkonib　$\wa{k=1}{n}a_k=S_nとおくと,S_{n-1}を考えて,S_n-S_{n-1}=a_nより,$
+\begin{align*}
+    a_n=2a_n-2a_{n-1}+1&\doti a_n=2a_{n-1}-1　(n\geq2)\\
+    &\doti a_{n+1}=2a_n-1　(n\geq1)\\
+    &\doti a_{n+1}-1=2\p{a_n-1}\\
+    &\doti a_n=\p{a_1-1}\cdot2^{n-1}+1\\
+    &\doti a_n=-2\cdot2^{n-1}+1\\
+    &\doti \ans{a_n=-2^n+1　(n\geq1)}
+\end{align*}
+\newpage
+\noindent$\bullet\doni\ans{冪乗,積が含む漸化式.}$\\
+次のような形をした漸化式です.
+\begin{align*}
+    &\bullet\hspace{2mm}\ans{a_{n+1}=a_n^k}\cdots\cdots\cdots\cdots\cdots\cdots\maruichi\\\\
+    &\bullet\hspace{2mm}\ans{a_na_{n+1}=k\sqrt[p]{a_n}}\cdots\cdots\cdots\maruni
+\end{align*}
+ここらへんの漸化式は,\ans{嫌なものを取り除く.}という方針で解きます.順にみてゆきましょう.\\
+\kangaekata\\
+$\maruichi:右辺の\ans{k乗が嫌!}です.指数を前に出せるものといえば....そう,\ans{対数}です.\\では,底は何にしましょうか.まあなんでも良いのですが,\ans{初項を底にする.}と
+楽なことが多いです.\\
+\maruni:まあこれも上と同じですね.両辺に対数をとりましょう.この場合,\ans{底を冪乗(p)}にするのが楽になる場合が多いです.$\\
+では,次の2題を20分を目安に取り組んでみてください.\\\\
+\ba{2$\bullet$1}次の条件によって定められる数列$\B{a_n}がある.$
+\begin{align*}
+    \begin{cases}
+        a_1=2\\
+        a_{n+1}=8a_n^2　(n=1,2,3\cdots)\cdots\cdots\cdots\cdots\maruichi
+    \end{cases}
+\end{align*}
+\kakkoichi 　$数列\B{a_n}の一般項を求めよ.$\\
+\kakkoni　$\mathrm{P}_n=a_1a_2a_3\cdots a_nとおく.数列\B{\mathrm{P}_n}の一般項を求めよ.$\\
+\hspace{10cm}(大阪大)\\\\
+\ba{2$\bullet$2}次の漸化式で定義される数列$\B{a_n}$の一般項$a_n$を求めよ.
+\begin{align*}
+    \begin{cases}
+        a_1=2\\
+        a_na_{n+1}=2\sqrt{a_n}　(n\geq1)
+    \end{cases}
+\end{align*}
+\newpage
+\noindent\ba{2$\bullet$1}\\
+\kangaekata\\
+\kakkoichi 両辺に底を2とする対数を取りましょう.\\
+\kakkoni 積の形は嫌なので,両辺に任意の底を持つ対数を取りましょう.(解答では,自然対数を取ります.)\\
+\kai\\
+\kakkoichib　$\maruichi の両辺に底を2とする対数をとると,$
+\begin{align*}
+    \log_2a_{n+1}&=\log_2a_n+\log_28\\
+    &=2\log_2a_n+3\cdots\cdots\cdots\cdots\maruni
+\end{align*}
+これより,$b_n=\log_2a_nとおくと,$
+\begin{align*}
+    \maruni&\doti b_{n+1}=2b_n+3\\
+    &\doti b_{n+1}+3=2\p{b_n+3}\\
+    &\doti 
+\end{align*}
 \end{document}
