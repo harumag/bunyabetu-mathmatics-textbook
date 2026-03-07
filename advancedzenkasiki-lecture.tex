@@ -31,7 +31,7 @@ $\bullet\doichi\ans{和で表された漸化式.}$\\
     S_{n-1}&=a_1+a_2+\cdots+a_{n-1}\hspace{13mm}(n\geq2)\cdots\cdots\cdots\maruni
 \end{align*}
 $\maruichi-\maruni を考えると,a_nが残るので,n\geq2 の範囲で,a_n のみの漸化式が得られる.$\\
-では,実際次の2問を10分を目安に解きましょう.\\\\
+では,実際に次の2問を10分を目安に解きましょう.\\\\
 \ba{1}.次の漸化式で定まる数列$\B{a_n}の一般項を求めよ.$\\
 $\kakkoichi S_n=-2a_n-2n+5　(n\geq1)$\\
 $\kakkoni \wa{k=1}{n}a_k=2a_n+n　(n\geq1)$
@@ -86,14 +86,14 @@ $\maruichi:右辺の\ans{k乗が嫌!}です.指数を前に出せるものとい
 \begin{align*}
     \begin{cases}
         a_1=2\\
-        a_na_{n+1}=2\sqrt{a_n}　(n\geq1)
+        a_na_{n+1}=2\sqrt{a_n}　(n\geq1)\cdots\cdots\cdots\bigstar
     \end{cases}
 \end{align*}
 \newpage
 \noindent\ba{2$\bullet$1}\\
 \kangaekata\\
 \kakkoichi 両辺に底を2とする対数を取りましょう.\\
-\kakkoni 積の形は嫌なので,両辺に任意の底を持つ対数を取りましょう.(解答では,自然対数を取ります.)\\
+\kakkoni 積の形は嫌なので,両辺に任意の底を持つ対数を取りましょう.(解答では,底2を取ります.)\\
 \kai\\
 \kakkoichib　$\maruichi の両辺に底を2とする対数をとると,$
 \begin{align*}
@@ -104,6 +104,51 @@ $\maruichi:右辺の\ans{k乗が嫌!}です.指数を前に出せるものとい
 \begin{align*}
     \maruni&\doti b_{n+1}=2b_n+3\\
     &\doti b_{n+1}+3=2\p{b_n+3}\\
-    &\doti 
+    &\doti b_n=\p{b_1+3}\cdot2^{n-1}-3\\
+    &\doti \log_2a_n=\p{\log_22+3}-3=2^{n+1}-3\\
+    &\doti \ans{a_n=2^{2^{n+1}-3}　(n\geq1)}
+\end{align*}\\
+\kakkonib　$\mathrm{P}_n=a_1a_2a_3\cdots a_n\cdots\cdots\cdots\marusan の両辺に底を2とする対数をとると,$
+\begin{align*}
+    \log_2\mathrm{P}_n&=\log_2 a_1+\log_2 a_2+\log_2 a_3+\cdots+\log_2 a_n\\
+    &=\wa{k=1}{n}\log_2 a_k\\
+    &=\wa{k=1}{n}\log_2\p{2^{2^{k+1}-3}}\\
+    &=\wa{k=1}{n}\p{2^{k+1}-3}\log_22\\
+    &=\dfrac{2^{n+2}-4}{2-1}-3n\\
+    &=2^{n+2}-4-3n
+\end{align*}
+$\yueni \ans{\mathrm{P}_n=2^{2^{n+2}-3n-4}　(n\geq1)}$
+\newpage
+\noindent\ba{2$\bullet$2}\\
+\kangaekata\\
+ もちろん積の形が嫌なので,両辺に対数を取ります.底は,漸化式の係数と平方根から2が良いでしょう.\\
+ \kai\\
+ $\bigstar の両辺に底を2とする対数をとると,$
+ \begin{align*}
+    \log_2a_n+\log_2a_{n+1}=\log_22\sqrt{a_n}=1+\dfrac{1}{2}\log_2a_n
+ \end{align*}
+ $\yueni \log_2a_{n+1}=-\dfrac{1}{2}\log_2a_n+1\cdots\cdots\cdots\heartsuit$\\
+ $これより,\heartsuit を解くと,$
+ \begin{align*}
+    \heartsuit&\doti\log_2a_{n+1}-\dfrac{2}{3}=-\dfrac{1}{2}\p{\log_2a_n-\dfrac{2}{3}}\\
+    &\doti \log_2a_n=\dfrac{1}{2}\cdot\p{-\dfrac{1}{2}}^{n-1}+\dfrac{2}{3}\\
+    &\doti \ans{a_n=2^{\frac{1}{3}\B{\p{-\frac{1}{2}}^{n-1}+2}}　(n\geq1)}
+ \end{align*}
+ \newpage
+\noindent$\bullet\dosan\ans{分数型漸化式.}$\\
+名の通り,分数の形をした漸化式です.次のような形.
+\begin{center}
+    $\ans{a_{n+1}=\dfrac{pa_n+f(n)}{qa_n+f(n)}}$
+\end{center}
+分数型の漸化式は,次のような解き方があります.前者は,入試問題の典型的な解法です.\\
+\kuromaruichi 「$nに順に数を代入して,一般項を推測して数学的帰納法で正当化する.$」\\
+\kuromaruni 「$式を試行錯誤して,自分が解ける形に変形する.$」\\
+例題を上の二つの方法で解いてみましょう.\\\\
+\reidaic　次の漸化式で表される数列$\B{a_n}の一般項a_nを求めよ.$
+\begin{align*}
+    \begin{cases}
+        a_1=2\\
+        a_{n+1}=\dfrac{a_n}{a_n+4}　(n\geq1)
+    \end{cases}
 \end{align*}
 \end{document}
